@@ -15,36 +15,35 @@ public class AdventureGame {
         }
 
         // Special locations
-        grid[2][2] = new Location("Town Square", "A bright fountain sits here.");
-        grid[1][2] = new Shop("Bakery", "Smells like fresh bread.");
-        grid[3][2] = new Building("Old Bookstore", "A locked door stands before you.");
-        grid[2][1] = new Location("Oak Garden", "A tall oak tree stands here.");
+        grid[2][2] = new Location("Town Square", "a fountain containing water is here");
+        grid[1][2] = new Shop("Bakery", "mmmmm bread");
+        grid[3][2] = new Building("Old Bookstore", "just a locked door nothing out of the ordinary here");
+        grid[2][1] = new Location("Oak Garden", "a vast forest of oaks");
 
         // Items
-        Treasure key = new Treasure("Golden Key", "A shiny golden key.", 100);
-        Food bread = new Food("Bread", "Freshly baked bread.", 10);
+        Treasure key = new Treasure("Golden Key", "a key for the old bookstore", 100);
+        Food bread = new Food("Bread", "bread tastes better than key", 10);
 
         grid[1][2].addItem(bread);
         grid[2][1].addItem(key);
 
         // NPC
-        NonPlayerCharacter stranger = new NonPlayerCharacter(
-            "Stranger",
-            "You seek the Golden Key? Check behind the oak tree..."
-        );
-        grid[2][3].setNPC(stranger);
+        NonPlayerCharacter merchant = new NonPlayerCharacter(
+            "merchant",
+            "you need the tree to find the key");
+        grid[2][3].setNPC(merchant);
 
-        Player player = new Player("Hero");
+        Player player = new Player("skibidi");
 
-        System.out.println("Welcome to the Neighborhood Adventure!");
+        System.out.println("welcome to the skibidi's wacky crazy adventure");
 
         boolean playing = true;
 
         while (playing) {
             Location current = grid[player.getRow()][player.getCol()];
             System.out.println("\n" + current);
-
-            System.out.print("\nCommand: ");
+            System.out.println("\ntype help for a list of commands");
+            System.out.print("\ncommand: ");
             String input = scanner.nextLine().toLowerCase();
 
             if (input.startsWith("move")) {
@@ -58,7 +57,7 @@ public class AdventureGame {
                 if (player.getRow() < 0 || player.getRow() >= 5 ||
                     player.getCol() < 0 || player.getCol() >= 5) {
 
-                    System.out.println("You hit a wall!");
+                    System.out.println("you hit a wall!");
                     player.setPosition(oldRow, oldCol);
                 }
             }
@@ -69,9 +68,9 @@ public class AdventureGame {
 
                 if (item != null) {
                     player.addItem(item);
-                    System.out.println("Picked up: " + item.getName());
+                    System.out.println("picked up: " + item.getItemName());
                 } else {
-                    System.out.println("That item isn't here.");
+                    System.out.println("that item isn't here.");
                 }
             }
 
@@ -83,27 +82,31 @@ public class AdventureGame {
                 if (current.getNPC() != null) {
                     current.getNPC().talk();
                 } else {
-                    System.out.println("No one to talk to.");
+                    System.out.println("no ones there");
                 }
             }
 
             else if (input.equals("quit")) {
                 playing = false;
+            } else if (input.equals("help")){
+                System.out.println("help: displays this menu \nquit: quits the game");
+                 System.out.println("talk: talks to npc characters \ninventory: displays items collected");
+                 System.out.println("pick up + item: picks up an item present \nmove + direction: moves skibidi in a direction");
             }
 
             // WIN CONDITION
             for (Item i : player.getInventory()) {
-                if (i.getName().equals("Golden Key") &&
+                if (i.getItemName().equals("Golden Key") &&
                     current.getName().equals("Old Bookstore")) {
 
-                    System.out.println("\nYou unlock the bookstore!");
-                    System.out.println("🎉 YOU WIN! 🎉");
+                    System.out.println("\nyou unlock the bookstore");
+                    System.out.println("winner winner chicken dinner");
                     playing = false;
                 }
             }
         }
 
-        System.out.println("Thanks for playing!");
+        System.out.println("thanks for playing");
         scanner.close();
     }
 }

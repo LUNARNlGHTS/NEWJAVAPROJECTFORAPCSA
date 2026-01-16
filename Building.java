@@ -5,10 +5,10 @@ public class Building extends Location {
     }
 
     public void enter(Player player) {
-        System.out.println("You enter the " + getName() + ".");
+        System.out.println("You enter the " + getName());
     }
 
     public void exit(Player player) {
-        System.out.println("You leave the " + getName() + ".");
+        System.out.println("You leave the " + getName());
     }
 }

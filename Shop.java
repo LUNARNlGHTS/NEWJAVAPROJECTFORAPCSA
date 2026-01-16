@@ -6,6 +6,6 @@ public class Shop extends Building {
 
     public void buyItem(Player player, Item item) {
         player.addItem(item);
-        System.out.println("You bought: " + item.getName());
+        System.out.println("You bought: " + item.getItemName());
     }
 }

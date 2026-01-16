@@ -1,36 +1,49 @@
 import java.util.ArrayList;
 
 public class Character {
-    private String name;
-    private int health;
-    private ArrayList<Item> inventory;
+    private String characterName;
+    private int characterHealth;
+    private ArrayList<Item> characterInventory;
 
-    public Character(String name, int health) {
-        this.name = name;
-        this.health = health;
-        this.inventory = new ArrayList<>();
+    public Character(String characterName, int characterHealth) {
+        this.characterName = characterName;
+        this.characterHealth = characterHealth;
+        this.characterInventory = new ArrayList<>();
     }
 
-    public String getName() { return name; }
-    public int getHealth() { return health; }
-
-    public void setHealth(int health) {
-        this.health = health;
+    public Character(){
+        this("null", 1);
     }
 
-    public void addItem(Item item) {
-        inventory.add(item);
+    public String getCharacterName() { 
+        return characterName; 
+    }
+
+    public int getCharacterHealth() { 
+        return characterHealth; 
+    }
+
+    public void setCharacterName(String characterName){
+        this.characterName = characterName;
+    }
+
+    public void setCharacterHealth(int characterHealth) {
+        this.characterHealth = characterHealth;
     }
 
     public ArrayList<Item> getInventory() {
-        return inventory;
+        return characterInventory;
+    }
+
+    public void addItem(Item item) {
+        characterInventory.add(item);
     }
 
     public void showInventory() {
-        if (inventory.isEmpty()) {
-            System.out.println("Inventory is empty.");
+        if (characterInventory.isEmpty()) {
+            System.out.println("inventory is empty");
         } else {
-            System.out.println("Inventory: " + inventory);
+            System.out.println("inventory: " + characterInventory);
         }
     }
 }

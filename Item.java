@@ -1,18 +1,38 @@
 public class Item {
-    private String name;
-    private String description;
-    private int value;
+    private String itemName;
+    private String itemDescription;
+    private int itemValue;
 
-    public Item(String name, String description, int value) {
-        this.name = name;
-        this.description = description;
-        this.value = value;
+    public Item(String itemName, String itemDescription, int itemValue) {
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.itemValue = itemValue;
     }
 
-    public String getName() { return name; }
+    public String getItemName() { 
+        return itemName; }
 
-    @Override
+    public String getItemDescription(){
+        return itemDescription;
+    }
+
+    public int getItemValue(){
+        return itemValue;
+    }
+
+    public void setItemName(String itemName){
+        this.itemName = itemName;
+    }
+
+    public void setItemDescription(String itemDescription){
+        this.itemDescription = itemDescription;
+    }
+
+    public void setItemValue(int itemValue){
+        this.itemValue = itemValue;
+    }
+
     public String toString() {
-        return name;
+        return itemName;
     }
 }
