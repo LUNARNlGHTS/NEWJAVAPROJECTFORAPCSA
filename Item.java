@@ -9,6 +9,10 @@ public class Item {
         this.itemValue = itemValue;
     }
 
+    public Item(){
+        this("new item", "boring thingy", 1);
+    }
+
     public String getItemName() { 
         return itemName; }
 

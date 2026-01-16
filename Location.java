@@ -1,27 +1,27 @@
 import java.util.ArrayList;
 
 public class Location {
-    private String name;
-    private String description;
+    private String locationName;
+    private String locationDescription;
     private ArrayList<Item> items;
     private NonPlayerCharacter npc;
+
+    public Location(String locationName, String locationDescription) {
+        this.locationName = locationName;
+        this.locationDescription = locationDescription;
+        this.items = new ArrayList<>();
+        this.npc = null;
+    }
 
     public Location() {
         this("empty street", "merely a quiet street");
     }
 
-    public Location(String name, String description) {
-        this.name = name;
-        this.description = description;
-        this.items = new ArrayList<>();
-        this.npc = null;
-    }
+    public String getLocationName() {
+        return locationName; }
 
-    public String getName() {
-        return name; }
-
-    public String getDescription() { 
-        return description; }
+    public String getLocationDescription() { 
+        return locationDescription; }
 
     public void addItem(Item item) {
         items.add(item);
@@ -53,6 +53,6 @@ public class Location {
     public String toString() {
         String itemText = items.isEmpty() ? "nothing interesting here" : "Items: " + items;
         String npcText = (npc == null) ? "" : "\nsomeone is present" + npc.getCharacterName();
-        return name + "\n" + description + "\n" + itemText + npcText;
+        return locationName + "\n" + locationDescription + "\n" + itemText + npcText;
     }
 }

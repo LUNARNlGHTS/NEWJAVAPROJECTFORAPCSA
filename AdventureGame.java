@@ -22,7 +22,7 @@ public class AdventureGame {
 
         // Items
         Treasure key = new Treasure("Golden Key", "a key for the old bookstore", 100);
-        Food bread = new Food("Bread", "bread tastes better than key", 10);
+        Food bread = new Food("Bread", "bread tastes better than key", 10, false);
 
         grid[1][2].addItem(bread);
         grid[2][1].addItem(key);
@@ -33,7 +33,7 @@ public class AdventureGame {
             "you need the tree to find the key");
         grid[2][3].setNPC(merchant);
 
-        Player player = new Player("skibidi");
+        Player player = new Player("skibidi", 100, 2 ,2);
 
         System.out.println("welcome to the skibidi's wacky crazy adventure");
 
@@ -97,7 +97,7 @@ public class AdventureGame {
             // WIN CONDITION
             for (Item i : player.getInventory()) {
                 if (i.getItemName().equals("Golden Key") &&
-                    current.getName().equals("Old Bookstore")) {
+                    current.getLocationName().equals("Old Bookstore")) {
 
                     System.out.println("\nyou unlock the bookstore");
                     System.out.println("winner winner chicken dinner");

@@ -1,7 +1,13 @@
 public class Food extends Item {
-    public Food(String name, String description, int value) {
-        super(name, description, value);
+
+    boolean isAllergic;
+
+    public Food(String itemName, String itemDescription, int itemValue, boolean isAllergic) {
+        super(itemName, itemDescription, itemValue);
+        this.isAllergic = isAllergic;
     }
 
-    
+    public Food(){
+        this("new food", "food from Toriko", 1, false);
+    }
 }
