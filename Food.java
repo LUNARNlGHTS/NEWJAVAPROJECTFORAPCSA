@@ -1,13 +1,25 @@
 public class Food extends Item {
 
+    //creates variable
     boolean isAllergic;
 
-    public Food(String itemName, String itemDescription, int itemValue, boolean isAllergic) {
-        super(itemName, itemDescription, itemValue);
+    //paramaterized and unparameterized constructors
+    public Food(String itemName, String itemDescription, boolean isAllergic) {
+        super(itemName, itemDescription);
         this.isAllergic = isAllergic;
     }
 
     public Food(){
-        this("new food", "food from Toriko", 1, false);
+        this("new food", "food from Toriko", false);
+    }
+
+    //getter
+    public boolean getIsAllergic(){
+        return isAllergic;
+    }
+
+    //setter
+    public void setIsAllergic(boolean isAllergic){
+        this.isAllergic = isAllergic;
     }
 }

@@ -1,18 +1,20 @@
 public class Item {
+    //creates variables
     private String itemName;
     private String itemDescription;
-    private int itemValue;
 
-    public Item(String itemName, String itemDescription, int itemValue) {
+    //paramaterized and unparameterized constructors
+    public Item(String itemName, String itemDescription) {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
-        this.itemValue = itemValue;
+
     }
 
     public Item(){
-        this("new item", "boring thingy", 1);
+        this("new item", "boring thingy");
     }
 
+    //getters
     public String getItemName() { 
         return itemName; }
 
@@ -20,10 +22,7 @@ public class Item {
         return itemDescription;
     }
 
-    public int getItemValue(){
-        return itemValue;
-    }
-
+    //setters
     public void setItemName(String itemName){
         this.itemName = itemName;
     }
@@ -32,10 +31,7 @@ public class Item {
         this.itemDescription = itemDescription;
     }
 
-    public void setItemValue(int itemValue){
-        this.itemValue = itemValue;
-    }
-
+    //to string
     public String toString() {
         return itemName;
     }

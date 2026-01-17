@@ -1,32 +1,27 @@
 
 public class Character {
+    //makes variable
     private String characterName;
-    private int characterHealth;
 
-    public Character(String characterName, int characterHealth) {
+    //paramaterized and unparameterized constructors
+    public Character(String characterName) {
         this.characterName = characterName;
-        this.characterHealth = characterHealth;
     }
 
     public Character(){
-        this("null", 1);
+        this("new character");
     }
 
+    //getter
     public String getCharacterName() { 
         return characterName; 
     }
 
-    public int getCharacterHealth() { 
-        return characterHealth; 
-    }
-
+    //setter
     public void setCharacterName(String characterName){
         this.characterName = characterName;
     }
 
-    public void setCharacterHealth(int characterHealth) {
-        this.characterHealth = characterHealth;
-    }
 
     
 }
